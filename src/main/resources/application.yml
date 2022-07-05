@@ -1,0 +1,57 @@
+server:
+  port: 9099
+
+spring:
+  datasource:
+    jdbc-url: jdbc:mariadb://203.245.30.86:3306/wfms
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: wfms
+    password: user11@@
+
+  datasource-sec:
+    jdbc-url: jdbc:mariadb://203.245.30.86:3306/wfms
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: wfms
+    password: user11@@
+
+  datasource-three:
+    jdbc-url: jdbc:mariadb://203.245.30.86:3306/wfms
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: wfms
+    password: user11@@
+
+scheduling:
+  cron:
+    test: "0/5 * * * * ?" #끄기 "-"
+logging:
+  level:
+    org:
+      mariadb:
+        jdbc: debug
+---
+
+spring:
+  config:
+    activate:
+      on-profile: local
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: stg
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prd
